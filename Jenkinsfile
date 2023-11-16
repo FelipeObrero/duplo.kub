@@ -30,7 +30,7 @@ pipeline {
       }
     }
 
-    stage('Deploying React.js container to Kubernetes') {
+    stage('Deploying Container') {
       steps {
         script {
           // kubernetesDeploy(configs: "deployment.yaml", "service.yaml") deprecato
