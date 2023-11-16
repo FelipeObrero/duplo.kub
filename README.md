@@ -33,3 +33,6 @@ In questa fase invierà l'immagine Docker sul Docker Hub.
 
 - Deploying container to Kubernetes:<br>
 Infine estrarrà l'immagine dal repository Docker Hub e creerà un'applicazione containerizzata, che distribuirà sul contenitore su Kubernetes.
+
+Biblio:
+- https://sweetcode.io/how-to-deploy-an-application-to-kubernetes-cluster-using-jenkins-ci-cd-pipeline/

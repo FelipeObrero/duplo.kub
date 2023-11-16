@@ -9,6 +9,12 @@ pipeline {
 
   stages {
 
+    stage('Checkout Source') {
+      steps {
+        git 'https://github.com/FelipeObrero/duplo.kub.git'
+      }
+    }
+
     stage('Build image') {
       steps{
         script {
@@ -24,7 +30,7 @@ pipeline {
       steps{
         script {
           docker.withRegistry( 'https://registry.hub.docker.com', registryCredential ) {
-            dockerImage.push("v1")
+            dockerImage.push("v2")
           }
         }
       }
