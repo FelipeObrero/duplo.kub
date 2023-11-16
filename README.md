@@ -25,14 +25,40 @@ npx create-react-app duplo.kub
 - Checkout Source:<br>
 In questa fase, Jenkins utilizzerà il repository GitHub. Estrarrà ed eseguirà la scansione di tutti i file in questo repository GitHub.
 
-- Build image:<br>
+- Build Image:<br>
 In questa fase della pipeline, utilizzerà il Dockerfile per creare una immagine Docker.
 
-- Pushing Image:<br>
+- Push Image:<br>
 In questa fase invierà l'immagine Docker sul Docker Hub.
 
-- Deploying container to Kubernetes:<br>
+- Deploy Container:<br>
 Infine estrarrà l'immagine dal repository Docker Hub e creerà un'applicazione containerizzata, che distribuirà sul contenitore su Kubernetes.
 
-Biblio:
+
+## Istruzioni sul minikube
+
+Una volta deployato sul cluster kubernetes si può verificare la situazione con:
+```
+kubectl get all
+kubectl get service
+kubectl get deployment
+```
+
+Per esporre il servizio eseguire le istruzioni:
+```
+// url di forward fornita dal cluster
+minikube service duplo-kub-ser --url
+
+// url di forward definita dall'istruzione
+kubectl port-forward service/duplo-kub-ser 8030:3000
+```
+
+Per eliminare il deploy
+```
+kubectl delete service duplo-kub-ser
+kubectl delete deployment duplo-kub-dep
+```
+
+
+### Biblio:
 - https://sweetcode.io/how-to-deploy-an-application-to-kubernetes-cluster-using-jenkins-ci-cd-pipeline/

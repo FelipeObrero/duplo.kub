@@ -9,7 +9,7 @@ pipeline {
 
   stages {
 
-    stage('Build image') {
+    stage('Build Image') {
       steps{
         script {
           dockerImage = docker.build dockerimagename
@@ -17,7 +17,7 @@ pipeline {
       }
     }
 
-    stage('Pushing Image') {
+    stage('Push Image') {
       environment {
                registryCredential = 'dockerhub-credential'
            }
@@ -30,7 +30,7 @@ pipeline {
       }
     }
 
-    stage('Deploying Container') {
+    stage('Deploy Container') {
       steps {
         script {
           // kubernetesDeploy(configs: "deployment.yaml", "service.yaml") deprecato
