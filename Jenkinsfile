@@ -33,7 +33,9 @@ pipeline {
     stage('Deploying React.js container to Kubernetes') {
       steps {
         script {
-          kubernetesDeploy(configs: "deployment.yaml", "service.yaml")
+          // kubernetesDeploy(configs: "deployment.yaml", "service.yaml") deprecato
+          // Applica i file YAML sul cluster Kubernetes utilizzando il plugin senza specificare le credenziali
+          sh 'kubectl apply -f deployment.yaml -f service.yaml'
         }
       }
     }
